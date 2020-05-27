@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.battle.panda.caipiao.dao.CaiPiaoNumberDateMapper">
+  <resultMap id="BaseResultMap" type="com.battle.panda.caipiao.model.CaiPiaoNumberDate">
+    <result column="date" jdbcType="VARCHAR" property="date" />
+    <result column="first" jdbcType="VARCHAR" property="first" />
+    <result column="sec" jdbcType="VARCHAR" property="sec" />
+    <result column="third" jdbcType="VARCHAR" property="third" />
+    <result column="forth" jdbcType="VARCHAR" property="forth" />
+    <result column="fiveth" jdbcType="VARCHAR" property="fiveth" />
+    <result column="sumNumber" jdbcType="VARCHAR" property="sumnumber" />
+    <result column="kuadu" jdbcType="VARCHAR" property="kuadu" />
+    <result column="describes" jdbcType="VARCHAR" property="describes" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    date, first, sec, third, forth, fiveth, sumNumber, kuadu, describes
+  </sql>
+
+    <select id="getCount" resultType="Integer" parameterType="com.battle.panda.caipiao.model.CaiPiaoNumberDate">
+        select
+        count(1)
+        from tbl_caipiao_number_date
+        where 1=1
+    </select>
+
+
+    <select id="getAll" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM tbl_caipiao_number_date
+    </select>
+
+</mapper>
